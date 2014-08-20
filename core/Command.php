@@ -87,12 +87,12 @@ class Command
 	
 	public function setOptionsDescription(array $optionsDesc = array())
 	{
-		$this->optionsDescriptions = $optionsDesc;
+		$this->optionsDescription = $optionsDesc;
 	}
 	
 	public function getOptionsDescription()
 	{
-		return $this->optionsDescriptions;
+		return $this->optionsDescription;
 	}
 	
 	public function setDialog($dialog)

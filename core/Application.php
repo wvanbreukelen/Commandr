@@ -72,6 +72,21 @@ class Application
 		
 		}
 	}
+
+	public function findCommand($callsign, $namespace = false)
+	{
+		if (isset($this->commands[$callsign]))
+		{
+			if ($namespace)
+			{
+				return get_class($this->commands[$callsign]);
+			} else {
+				return $this->commands[$callsign];
+			}
+		}
+
+		return null;
+	}
 	
 	public function listCommands()
 	{
@@ -96,13 +111,6 @@ class Application
 		$argv = $this->getArgv();
 		
 		$command = $this->match;
-		
-		if (str_replace(" ", "", $argv[1]) = "")
-		{
-			$message = "";
-			
-			foreach ($)
-		}
 		
 		if (is_null($command))
 		{

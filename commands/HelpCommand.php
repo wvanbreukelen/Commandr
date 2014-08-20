@@ -18,15 +18,13 @@ class HelpCommand extends Command {
 	
 	public function action()
 	{
-		$command = $this->getArgument("command");
+		$callsign = $this->getArgument("command");
 		
-		// Temp. solution, developer has to create their owwn namespaces and not been bind to the testing namespace
+		$namespace = $this->getApp()->findCommand($callsign, true);
 		
-		$namespace = "Commandr\Commands\\" . ucfirst($command) . "Command";
-		
-		if ($this->getApp()->getCommand($command) !== false)
+		if ($this->getApp()->getCommand($callsign) !== false)
 		{
-			$command = $this->getApp()->getCommand($command);
+			$command = $this->getApp()->getCommand($callsign);
 			
 			$help = new CommandHelp($command);
 			
