@@ -214,7 +214,7 @@ class Application
 	{
 		if (!$this->checkRequiredArguments($command))
 		{
-			$this->output->error("Command " . $command->callsign . " not matches the amount of arguments!");
+			$this->output->error(sprintf($this->getConfig()->get('errors', 'notEnoughArguments'), $command->callsign));
 			
 			return;
 		}
