@@ -1,0 +1,13 @@
+{
+	"autoload": {
+		"classmap": [
+			"commands/",
+			"core/",
+			"config/"
+		]
+	},
+	"require": {
+		"symfony/console": "dev-master",
+		"phpunit/phpunit": "4.2.*"
+	}
+}

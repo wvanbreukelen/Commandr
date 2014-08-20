@@ -1,0 +1,3 @@
+- Create a good option processor & processing
+- No command given -> give user the all of the possible commands + help
+- Create a powerful console outputting formatter.
