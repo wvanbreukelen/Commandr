@@ -14,7 +14,9 @@ class Command
 	
 	public $optionsDescription = "Has not been set!";
 	
-	public $config = array();
+	public $config = array(
+		'arguments' => array()
+	);
 	
 	public $input, $output, $dialog;
 	
