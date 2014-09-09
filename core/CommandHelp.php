@@ -22,7 +22,7 @@ class CommandHelp
 	
 	public function generateHelp()
 	{
-		$message = "SUMMARY\n   " . $this->callsign . " " . $this->summary . "\n\n";
+		$message = "SUMMARY\n   " . $this->summary . "\n\n";
 		$message .= "USAGE\n   " . $this->callsign . " " . $this->usage . "\n\n";
 		$message .= "DESCRIPTION\n    " . $this->description . "\n\n";
 		
