@@ -151,11 +151,15 @@ class Application
 	{
 		$argv = $this->getArgv();
 		
-		// Argv vergelijken
-		$callsign = $argv[1];
+		if (isset($argv[1]))
+		{
+			$callsign = $argv[1];
 		
-		$this->match = (isset($this->commands[$callsign])) ? $this->commands[$callsign] : null;
-		
+			$this->match = (isset($this->commands[$callsign])) ? $this->commands[$callsign] : null;
+		} else {
+			$this->match = null;
+		}
+
 		return $this;
 	}
 	
