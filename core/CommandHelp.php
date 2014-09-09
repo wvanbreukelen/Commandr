@@ -24,7 +24,7 @@ class CommandHelp
 	{
 		$message = "SUMMARY\n   " . $this->summary . "\n\n";
 		$message .= "USAGE\n   " . $this->callsign . " " . $this->usage . "\n\n";
-		$message .= "DESCRIPTION\n    " . $this->description . "\n\n";
+		$message .= "DESCRIPTION\n   " . $this->description . "\n\n";
 		
 		return $message;
 	}
