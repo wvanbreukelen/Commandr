@@ -49,9 +49,9 @@ class Output
 		$this->display("\n\n" . $value . "\n");
 	}
 	
-	public function writeln($value)
+	public function writeln($value = "")
 	{
-		$this->display($value);
+		$this->display($value . "\n");
 	}
 	
 	/** 
@@ -60,7 +60,7 @@ class Output
 	
 	public function writeColor($value, $color)
 	{
-		$this->display("\n\n" . $this->applyTextColor($value, $color) . "\n");
+		$this->display($this->applyTextColor($value, $color) . "\n");
 	}
 	
 	/**
