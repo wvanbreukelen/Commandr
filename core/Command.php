@@ -42,9 +42,8 @@ class Command
 		}
 		
 		$position = $this->resolveArgumentPosition($name);
-		
+
 		return $this->input->receiveArgument($position);
-		
 	}
 	
 	public function setSummary($summary)
@@ -127,7 +126,7 @@ class Command
 			
 			foreach ($arguments as $rowName)
 			{
-				if ($rowName = $name)
+				if (strtolower($rowName) == strtolower($name))
 				{
 					return $i;
 				}
