@@ -17,6 +17,7 @@ class HelpCommand extends Command {
 
 		$this->setSummary("Display help about a specified command");
 		$this->setDescription("Display help about a specified command");
+		$this->setUsage("[command]");
 	}
 	
 	public function action()

@@ -19,7 +19,6 @@ class TestCommand extends Command
 		
 		$this->setDescription("Simple to use test command, for testablity for the application");
 		$this->setSummary("Simple to use test command");
-
 	}
 	
 	public function action()
