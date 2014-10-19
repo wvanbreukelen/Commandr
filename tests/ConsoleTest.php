@@ -1,5 +1,7 @@
 <?php
 
+require('config/config.php');
+
 use Commandr\Core\Application;
 use Commandr\Core\Input;
 use Commandr\Core\Output;
@@ -11,7 +13,7 @@ class ConsoleCreationTest extends PHPUnit_Framework_TestCase
 
 	protected $app;
 
-	public function testConsoleCreation()
+	public function __construct()
 	{
 		$this->app = new Application(
 			new Input,
@@ -20,7 +22,10 @@ class ConsoleCreationTest extends PHPUnit_Framework_TestCase
 			'PHPUnit Console TestCase',
 			'1.0'
 		);
-		
+	}
+
+	public function testConsoleCreation()
+	{
 		$this->assertTrue($this->app instanceof Commandr\Core\Application);
 	}
 	
@@ -41,11 +46,11 @@ class ConsoleCreationTest extends PHPUnit_Framework_TestCase
 			"category" => array("value1" => "hello")
 		));
 		
-		$this->assertEquals($config->get("category", "value1"), "value1");
+		$this->assertEquals($config->get("category", "value1"), "hello");
 		
 		$this->assertEquals($config->get("category"), array("value1" => "hello"));
 		
-		$this->setDefaultCategory("category");
+		$config->setDefaultCategory("category");
 		
 		$this->assertEquals($config->get(null, "value1"), "hello");
 	}
