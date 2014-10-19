@@ -69,10 +69,14 @@ class Output
 	
 	protected function applyTextColor($text, $color)
 	{
-		$style = new OutputStyle;
+		if ($this->hasColorSupport())
+		{
+			$style = new OutputStyle;
 		
-		$style->setForeground($color);
-		return $style->apply($text);
+			$style->setForeground($color);
+			return $style->apply($text);
+		}
+		return $text;
 	}
 	
 	protected function display($value)
@@ -91,6 +95,15 @@ class Output
 	protected function hasStdoutSupport()
     {
         return ('OS400' != php_uname('s'));
+    }
+
+    protected function hasColorSupport()
+    {
+    	if (DIRECTORY_SEPARATOR === '\\') {
+            return false !== getenv('ANSICON');
+        }
+
+        return function_exists('posix_isatty') && @posix_isatty(STDOUT);
     }
 	
 }
