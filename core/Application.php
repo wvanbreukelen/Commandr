@@ -105,10 +105,11 @@ class Application
 		return isset($this->commands[$callsign]);
 	}
 	
-	public function run(Output $output)
+	public function run(Output $output, $argv = null)
 	{
 		$this->getConfig()->setDefaultCategory('errors');
-		$argv = $this->getArgv();
+
+		if (is_null($argv)) $argv = $this->getArgv();
 		
 		$command = $this->match;
 		
