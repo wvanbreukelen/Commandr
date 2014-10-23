@@ -15,7 +15,7 @@ class OutputFormatter
 		}
 	}
 
-	public function formatString()
+	public function formatString($string)
 	{
 		$string = str_replace("-", "\n", $string);
 		$string = str_replace("{TAB}", "   ", $string);

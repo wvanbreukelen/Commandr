@@ -98,7 +98,7 @@ class Command
 		return $this->config;
 	}
 	
-	public function setOptionsDescription(array $optionsDesc = array())
+	public function setOptionsDescription($optionsDesc)
 	{
 		$this->optionsDescription = $optionsDesc;
 	}

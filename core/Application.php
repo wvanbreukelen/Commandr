@@ -67,7 +67,7 @@ class Application
 	{
 		if ($command instanceof Command)
 		{
-			$this->output->display(sprintf($this->getConfig()->get('messages', 'listCommand'), $command->callsign, $command->description));
+			$this->output->write(sprintf($this->getConfig()->get('messages', 'listCommand'), $command->callsign, $command->description));
 		} else if (is_string($command) && isset($this->commands[$command])) {
 		
 		}
@@ -97,7 +97,7 @@ class Application
 			$list .= sprintf($this->getConfig()->get('messages', 'listCommand') . "\n", $command->callsign, $command->description);
 		}
 		
-		if (!is_null($list)) $this->output->display($list);
+		if (!is_null($list)) $this->output->write($list);
 	}
 	
 	public function isCommand($callsign)

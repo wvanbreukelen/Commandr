@@ -25,11 +25,11 @@ class HelpCommand extends Command {
 		$callsign = $this->getArgument("command");
 		
 		$namespace = $this->getApp()->findCommand($callsign, true);
+
+		$command = $this->getApp()->getCommand($callsign);
 		
 		if ($this->getApp()->getCommand($callsign) !== false)
 		{
-			$command = $this->getApp()->getCommand($callsign);
-			
 			$help = new CommandHelp($command);
 			
 			$this->output->message($help->generateHelp($command));

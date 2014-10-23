@@ -13,6 +13,8 @@ $config = array(
 
 function dumpConfig()
 {
+	global $config;
+
 	return $config;
 }
 
