@@ -14,11 +14,18 @@ class Config
 		$this->config = $config;
 	}
 	
+	/**
+	 * @param string $category
+	 */
 	public function setDefaultCategory($category)
 	{
 		$this->defaultCategory = $category;
 	}
 	
+	/**
+	 * @param string $category
+	 * @param string $item
+	 */
 	public function get($category = null, $item = null)
 	{
 		if (!is_null($this->defaultCategory))

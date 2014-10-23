@@ -12,6 +12,9 @@ class Input
 		$this->argv = $_SERVER['argv'];
 	}
 	
+	/**
+	 * @param integer $id
+	 */
 	public function receiveArgument($id = null)
 	{
 		$arguments = $this->argv;
