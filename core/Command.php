@@ -34,6 +34,9 @@ class Command
 		return $this->getDialog()->confirm($this->output, $question, $default);
 	}
 	
+	/**
+	 * @param string $name
+	 */
 	public function getArgument($name = null)
 	{
 		if (is_null($name))
@@ -46,6 +49,9 @@ class Command
 		return $this->input->receiveArgument($position);
 	}
 	
+	/**
+	 * @param string $summary
+	 */
 	public function setSummary($summary)
 	{
 		$this->summary = $summary;
@@ -56,6 +62,9 @@ class Command
 		return $this->summary;
 	}
 	
+	/**
+	 * @param string $description
+	 */
 	public function setDescription($description)
 	{
 		$this->description = $description;
@@ -66,6 +75,9 @@ class Command
 		return $this->description;
 	}
 	
+	/**
+	 * @param string $usage
+	 */
 	public function setUsage($usage)
 	{
 		$this->usage = $usage;
@@ -96,6 +108,9 @@ class Command
 		return $this->optionsDescription;
 	}
 	
+	/**
+	 * @param Dialog $dialog
+	 */
 	public function setDialog($dialog)
 	{
 		$this->dialog = $dialog;
@@ -106,6 +121,9 @@ class Command
 		return $this->dialog;
 	}
 	
+	/**
+	 * @param Application $app
+	 */
 	public function setApp($app)
 	{
 		$this->app = $app;

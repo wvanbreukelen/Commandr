@@ -15,6 +15,9 @@ class Output
 		return $formatter->getFormatted();
 	}
 
+	/**
+	 * @param string $message
+	 */
 	public function message($message)
 	{
 		$this->write($message);
@@ -35,6 +38,9 @@ class Output
 		$this->writeColor($message, 'yellow');
 	}
 	
+	/**
+	 * @param string $message
+	 */
 	public function error($message)
 	{
 		$this->writeColor($message, 'red');
@@ -56,6 +62,7 @@ class Output
 	
 	/** 
 	* Output any given text with a style to the console screen
+	* @param string $color
 	*/
 	
 	public function writeColor($value, $color)
@@ -79,6 +86,9 @@ class Output
 		return $text;
 	}
 	
+	/**
+	 * @param string $value
+	 */
 	protected function display($value)
 	{
 		$outputStream = 'php://stdout';
