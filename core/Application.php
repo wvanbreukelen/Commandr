@@ -94,9 +94,7 @@ class Application
 	
 		foreach ($this->commands as $command)
 		{
-
 			$list .= sprintf($this->getConfig()->get('messages', 'listCommands') . "\n", $command->callsign, $command->description);
-			//echo $list;
 		}
 		
 		if (!is_null($list)) $this->output->write($list);
