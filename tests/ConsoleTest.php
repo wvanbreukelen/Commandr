@@ -8,7 +8,7 @@ use Commandr\Core\Output;
 use Commandr\Core\Dialog;
 use Commandr\Core\Config;
 
-class ConsoleCreationTest extends PHPUnit_Framework_TestCase
+class ConsoleTest extends PHPUnit_Framework_TestCase
 {
 
 	protected $app;
@@ -33,7 +33,7 @@ class ConsoleCreationTest extends PHPUnit_Framework_TestCase
 	{
 		//$this->assertTrue(function_exists('dumpConfig'));
 		
-		$config = new Config(dumpConfig());
+		$config = $this->generateNewConfig();
 		
 		$this->app->setConfig($config);
 		
@@ -53,5 +53,22 @@ class ConsoleCreationTest extends PHPUnit_Framework_TestCase
 		$config->setDefaultCategory("category");
 		
 		$this->assertEquals($config->get(null, "value1"), "hello");
+	}
+
+	public function testConsoleList()
+	{
+		$list = new \Commandr\Commands\ListCommand();
+
+		$this->app->setConfig($this->generateNewConfig());
+
+		$this->app->registerCommand(new \Commandr\Commands\HelpCommand);
+		$this->app->registerCommand($list);
+
+		$this->app->runCommand($list);
+	}
+
+	private function generateNewConfig()
+	{
+		return new Config(dumpConfig());
 	}
 }

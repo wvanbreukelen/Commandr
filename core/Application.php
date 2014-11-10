@@ -94,7 +94,9 @@ class Application
 	
 		foreach ($this->commands as $command)
 		{
-			$list .= sprintf($this->getConfig()->get('messages', 'listCommand') . "\n", $command->callsign, $command->description);
+
+			$list .= sprintf($this->getConfig()->get('messages', 'listCommands') . "\n", $command->callsign, $command->description);
+			//echo $list;
 		}
 		
 		if (!is_null($list)) $this->output->write($list);
@@ -121,6 +123,22 @@ class Application
 		}
 		
 		return $this->runCommand($command);
+	}
+
+	public function runCommand(Command $command)
+	{
+		if (!$this->checkRequiredArguments($command))
+		{
+			$this->output->error(sprintf($this->getConfig()->get('errors', 'notEnoughArguments'), $command->callsign));
+			
+			return;
+		}
+		
+		// Share the current app instance with the command, so the command can handle specified actions
+		
+		$command->setApp($this);
+		
+		return $command->action();
 	}
 	
 	public function setConfig(Config $config)
@@ -189,7 +207,7 @@ class Application
 			
 			if (isset($config['arguments']))
 			{
-				if (count($config['arguments']) != count($this->getArgv()) - 2)
+				if (count($config['arguments']) != max(count($this->getArgv()) - 2, 0))
 				{
 					return false;
 				}
@@ -213,21 +231,5 @@ class Application
 		{
 			return $command->help;
 		}
-	}
-	
-	protected function runCommand(Command $command)
-	{
-		if (!$this->checkRequiredArguments($command))
-		{
-			$this->output->error(sprintf($this->getConfig()->get('errors', 'notEnoughArguments'), $command->callsign));
-			
-			return;
-		}
-		
-		// Share the current app instance with the command, so the command can handle specified actions
-		
-		$command->setApp($this);
-		
-		return $command->action();
 	}
 }

@@ -5,14 +5,15 @@ namespace Commandr\Commands;
 use Commandr\Core\Command;
 use Commandr\Core\CommandHelp;
 
-class HelpCommand extends Command {
+class HelpCommand extends Command
+{
 
 	public $callsign = "help";
 	
 	public function prepare()
 	{
 		$this->setConfig(
-			array("arguments" => array("command"))
+			array('arguments' => array('command'))
 		);
 
 		$this->setSummary("Display help about a specified command");

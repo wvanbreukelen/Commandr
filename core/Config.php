@@ -2,6 +2,8 @@
 
 namespace Commandr\Core;
 
+use Exception;
+
 class Config
 {
 
@@ -54,6 +56,8 @@ class Config
 			}
 		}
 		
+		throw new Exception("Cannot find " . $item . " in config!");
+
 		return null;
 	}
 }

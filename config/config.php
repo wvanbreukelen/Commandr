@@ -9,6 +9,10 @@ $config = array(
 		'commandNotFound' => "This command cannot been found.",
 		'notEnoughArguments' => "Command %s does not matches the amount of required arguments!",
 	),
+
+	'messages' => array(
+		'listCommands' => "%s - %s",
+	),
 );
 
 function dumpConfig()
