@@ -1,4 +1,4 @@
 Commandr
 ========
 
-Simple to use console component
+Simple to use console component for the Flyer Framework
